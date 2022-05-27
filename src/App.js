@@ -2,7 +2,7 @@ import "./App";
 
 import styles from "./App.module.css";
 import MovieDetails from "./pages/MovieDetails";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 import Ladingpages from "./pages/Ladingpages";
 
 const App = () => {
@@ -15,6 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Ladingpages />} />
           <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route path="*"  element={<Navigate replace to="/"/>}/>
         </Routes>
       </main>
     </div>

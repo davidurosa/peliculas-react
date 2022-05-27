@@ -1,11 +1,9 @@
 import style from "./Search.module.css";
 import { FaSearch } from "react-icons/fa";
-import {  useNavigate } from "react-router-dom";
-import { useQuery } from "../hooks/useQuery";
+import {  useSearchParams } from "react-router-dom";
 
 const Search = () => {
 
-  const navigate = useNavigate();
 
   
 
@@ -14,7 +12,7 @@ const Search = () => {
     e.preventDefault();
   };
 
-  const query = useQuery();
+  const [query,setQuery] = useSearchParams();
 const search = query.get("search");
  
 
@@ -29,7 +27,8 @@ const search = query.get("search");
           onChange={(e) => {
             
             const value = e.target.value;
-            navigate("/?search="+value, { replace: true });
+
+            setQuery({search:value})
 
           }}
         />
